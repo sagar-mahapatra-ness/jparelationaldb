@@ -1,5 +1,8 @@
-package com.webapp.domain;
+package com.webapp.core.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Customer extends AbstractEntity{
 	private String name;
 	private Address address;

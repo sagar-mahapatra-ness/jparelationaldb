@@ -1,4 +1,4 @@
-package com.webapp.domain;
+package com.webapp.core.domain;
 
 public class Product  extends AbstractEntity{
 	private String name;
