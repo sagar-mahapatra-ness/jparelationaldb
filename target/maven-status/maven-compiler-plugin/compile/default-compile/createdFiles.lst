@@ -1,0 +1,13 @@
+com\webapp\core\domain\Cart.class
+com\webapp\core\domain\LineItem.class
+com\webapp\config\RootConfig.class
+com\webapp\core\domain\EmailAddress.class
+com\webapp\config\WebInit.class
+com\webapp\core\domain\Product.class
+com\webapp\core\repository\CustomerRepository.class
+com\webapp\config\WebConfig.class
+com\webapp\core\domain\Address.class
+com\webapp\core\domain\Customer.class
+com\webapp\web\controller\CustomerResource.class
+com\webapp\core\domain\Order.class
+com\webapp\core\domain\AbstractEntity.class

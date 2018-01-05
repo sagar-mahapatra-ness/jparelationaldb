@@ -1,41 +1,37 @@
 package com.webapp.core.domain;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import org.springframework.data.annotation.Id;
+
+
+@Entity
 public class Product  extends AbstractEntity{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@Column(nullable = false)
 	private String name;
+	
+	@Column(nullable = false)
 	private String description;
-	private String attribuets;
-	private Number price;
+	
+	@Column(nullable = false)
+	private BigDecimal price;
+	
+	@ElementCollection
+	private Map<String, String> attributes = new HashMap<String, String>();
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getAttribuets() {
-		return attribuets;
-	}
-
-	public void setAttribuets(String attribuets) {
-		this.attribuets = attribuets;
-	}
-
-	public Number getPrice() {
-		return price;
-	}
-
-	public void setPrice(Number price) {
-		this.price = price;
-	}
+	
 
 }

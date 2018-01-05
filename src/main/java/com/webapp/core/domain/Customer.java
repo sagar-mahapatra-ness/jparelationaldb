@@ -1,25 +1,33 @@
 package com.webapp.core.domain;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 
-@Entity
-public class Customer extends AbstractEntity{
-	private String name;
-	private Address address;
+import org.springframework.data.annotation.Id;
 
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+@Entity(name="Customers")
+public class Customer {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String firstName;
+	private String lastName;
+	
+	@Column(unique = true)
+	private EmailAddress emailAddress;
+	
+	@OneToMany(cascade=CascadeType.ALL ,orphanRemoval=true)
+	@JoinColumn(name="customer_id")
+	private Set<Address> address;
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+	
 }

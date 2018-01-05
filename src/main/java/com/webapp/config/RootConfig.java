@@ -20,23 +20,23 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @ComponentScan(basePackages = {"com.webapp.core"})
 @PropertySource("classpath:app.properties")
-@EnableJpaRepositories(basePackages = "com.webapp.repository")
+@EnableJpaRepositories(basePackages = "com.webapp.core.repository")
 @EnableTransactionManagement
 public class RootConfig {
 	
-	@Value("datasource.jdbc.driverClassName")
+	@Value("${datasource.jdbc.driverClassName}")
 	private String driverClassName;
 	
-	@Value("datasource.jdbc.url")
+	@Value("${datasource.jdbc.url}")
 	private String url;
 	
-	@Value("datasource.jdbc.username")
+	@Value("${datasource.jdbc.username}")
 	private String username;
 	
-	@Value("datasource.jdbc.password")
+	@Value("${datasource.jdbc.password}")
 	private String password;
 	
-	@Value("datasource.database-platform")
+	@Value("${datasource.database-platform}")
 	private String databasePlatform;
 	
 	@Bean
@@ -45,7 +45,7 @@ public class RootConfig {
 		LocalContainerEntityManagerFactoryBean emfb = new LocalContainerEntityManagerFactoryBean();
 		emfb.setDataSource(dataSource);
 		emfb.setJpaVendorAdapter(jpaVendorAdapter);
-		emfb.setPackagesToScan("com.webapp.domain");
+		emfb.setPackagesToScan("com.webapp.core.domain");
 		return emfb;
 	}
 
