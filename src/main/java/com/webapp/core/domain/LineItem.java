@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 
 @Entity(name="listitems")
@@ -15,16 +15,16 @@ public class LineItem  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	public Long id;
 	
 	@ManyToOne
-	private Product product;
+	public Product product;
 	
 	@Column(nullable = false)
-	private Number quantity;
+	public Number quantity;
 	
 	@Column(nullable = false)
-	private Number price;
+	public Number price;
 	
 	
 

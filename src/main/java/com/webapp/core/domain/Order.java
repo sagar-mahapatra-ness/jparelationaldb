@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -20,23 +20,23 @@ import javax.persistence.GenerationType;
 public class Order{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	public Long id;
 	
-	private Date date;
+	public Date date;
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "order_id")
-	private List<LineItem> items;
+	public List<LineItem> items;
 	
 	@ManyToOne(optional = false)
-	private Customer customer;
+	public Customer customer;
 	
 	@ManyToOne
-	private Address billingAddress;
+	public Address billingAddress;
 	
 	@ManyToOne
-	private Address shoppingAddress;
+	public Address shoppingAddress;
 	
-	private String status;
+	public String status;
 	
 }

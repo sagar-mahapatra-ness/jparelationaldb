@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 
 @Entity
@@ -18,19 +18,19 @@ public class Product  extends AbstractEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	public Long id;
 	
 	@Column(nullable = false)
-	private String name;
+	public String name;
 	
 	@Column(nullable = false)
-	private String description;
+	public String description;
 	
 	@Column(nullable = false)
-	private BigDecimal price;
+	public BigDecimal price;
 	
 	@ElementCollection
-	private Map<String, String> attributes = new HashMap<String, String>();
+	public Map<String, String> attributes = new HashMap<String, String>();
 
 	
 

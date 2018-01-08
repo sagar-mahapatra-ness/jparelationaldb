@@ -1,21 +1,22 @@
 package com.webapp.core.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.MappedSuperclass;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
-
+@Entity
 public class Address {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	public Long id;
 	
-	private String street;
-	private String city;
-	private String country;
+	public String street;
+	public String city;
+	public String country;
 	
 		
 }

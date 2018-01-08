@@ -13,6 +13,8 @@ public class WebInit implements WebApplicationInitializer {
 
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
+		servletContext.setInitParameter("spring.profiles.active", "dev");
+
 		AnnotationConfigWebApplicationContext rootContext = new  AnnotationConfigWebApplicationContext();
 		rootContext.register(RootConfig.class);
 		ContextLoaderListener contextListerer = new ContextLoaderListener(rootContext);
@@ -26,7 +28,7 @@ public class WebInit implements WebApplicationInitializer {
 		Dynamic servlet = servletContext.addServlet("dispatcher", dispatcherServlet);
 		
 		servlet.setLoadOnStartup(1);
-		servlet.addMapping("/api");
+		servlet.addMapping("/api/*");
 		
 		
 	}
